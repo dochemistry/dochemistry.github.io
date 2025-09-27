@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интересные факты об органической химии</title>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>">
+    <meta name="theme-color" content="#8bc34a">
+    <meta name="msapplication-TileColor" content="#689f38">
+    <meta name="theme-color" content="#8bc34a">
+    <style>
+        /* Сброс стилей и базовые настройки */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f8fdf8;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Палитра цветов */
+        :root {
+            --primary-green: #8bc34a;
+            --light-green: #dcedc8;
+            --dark-green: #689f38;
+            --text-dark: #2e3b30;
+        }
+
+        /* Шапка сайта */
+        header {
+            background: linear-gradient(135deg, var(--light-green), var(--primary-green));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Навигация */
+        nav {
+            background-color: white;
+            padding: 0.8rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            flex: 1;
+            min-width: fit-content;
+            text-align: center;
+            max-width: 200px;
+        }
+
+        nav a:hover {
+            color: var(--dark-green);
+            background-color: var(--light-green);
+            transform: translateY(-2px);
+        }
+
+        /* Активная вкладка */
+        nav a.active {
+            background-color: var(--primary-green);
+            color: white;
+        }
+
+        /* Основное содержимое */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            flex: 1;
+            width: 100%;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 1rem;
+        }
+
+        .intro h2 {
+            color: var(--dark-green);
+            margin-bottom: 1.5rem;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 600;
+        }
+
+        .intro p {
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        /* Сетка фактов */
+        .facts-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        /* Карточка факта */
+        .fact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-green);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .fact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-green), var(--dark-green));
+        }
+
+        .fact-number {
+            display: inline-block;
+            background: var(--light-green);
+            color: var(--dark-green);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .fact-card h3 {
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .fact-card p {
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: auto;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        /* Адаптивность для планшетов */
+        @media (min-width: 768px) {
+            .facts-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .nav-container {
+                flex-wrap: nowrap;
+                gap: 2rem;
+            }
+
+            nav a {
+                font-size: 1.1rem;
+                padding: 1rem 2rem;
+            }
+        }
+
+        /* Адаптивность для компьютеров */
+        @media (min-width: 1024px) {
+            .facts-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+            }
+
+            .fact-card {
+                padding: 2.5rem;
+            }
+
+            .nav-container {
+                gap: 3rem;
+            }
+        }
+
+        /* Адаптивность для больших экранов */
+        @media (min-width: 1200px) {
+            main {
+                padding: 0 2rem;
+            }
+        }
+
+        /* Особые стили для очень маленьких экранов */
+        @media (max-width: 360px) {
+            header {
+                padding: 1.5rem 1rem;
+            }
+            
+            .fact-card {
+                padding: 1.5rem;
+            }
+            
+            nav a {
+                padding: 0.7rem 1rem;
+                font-size: 1rem;
+            }
+            
+            .nav-container {
+                gap: 0.5rem;
+            }
+        }
+
+        /* Плавная прокрутка */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Улучшение для touch-устройств */
+        @media (hover: none) {
+            .fact-card:hover {
+                transform: none;
+            }
+            
+            nav a:hover {
+                transform: none;
+            }
+            
+            .fact-card:active {
+                transform: scale(0.98);
+            }
+        }
+
+        /* Анимация появления карточек */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fact-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .fact-card:nth-child(1) { animation-delay: 0.1s; }
+        .fact-card:nth-child(2) { animation-delay: 0.2s; }
+        .fact-card:nth-child(3) { animation-delay: 0.3s; }
+        .fact-card:nth-child(4) { animation-delay: 0.4s; }
+        .fact-card:nth-child(5) { animation-delay: 0.5s; }
+        .fact-card:nth-child(6) { animation-delay: 0.6s; }
+        .fact-card:nth-child(7) { animation-delay: 0.7s; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Органическая химия</h1>
+        <p>Удивительные факты и открытия</p>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html">История</a>
+            <a href="facts.html" class="active">Интересные факты</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="intro">
+            <h2>Интересные факты об органической химии</h2>
+            <p>Органическая химия полна удивительных открытий и невероятных фактов. Здесь собраны самые интересные из них, которые покажут химию с новой стороны.</p>
+        </section>
+
+        <div class="facts-grid">
+            <!-- Факт 1 -->
+            <div class="fact-card">
+                <div class="fact-number">1</div>
+                <h3>Рождение из ложной теории: Витализм</h3>
+                <p>Долгое время считалось, что органические вещества невозможно создать искусственно, так как для их синтеза нужна «жизненная сила» (vis vitalis). Эту теорию витализма опроверг в 1828 году немецкий химик Фридрих Вёлер, случайно синтезировав мочевину из неорганических веществ. Это был первый шаг к рождению органической химии как науки.</p>
+            </div>
+
+            <!-- Факт 2 -->
+            <div class="fact-card">
+                <div class="fact-number">2</div>
+                <h3>Бензол и сны змеи</h3>
+                <p>Структура бензола (C₆H₆) долгое время была загадкой. Немецкий химик Фридрих Август Кекуле утверждал, что решение пришло к нему во сне - он увидел змею, кусающую себя за хвост. Это видение натолкнуло его в 1865 году на идею циклической структуры бензола с чередующимися двойными связями.</p>
+            </div>
+
+            <!-- Факт 3 -->
+            <div class="fact-card">
+                <div class="fact-number">3</div>
+                <h3>Случайное открытие искусственных красителей</h3>
+                <p>В 1856 году 18-летний химик Уильям Перкин пытался синтезировать противомалярийный препарат хинин, но эксперимент провалился. В результате он случайно получил мовеин — первый синтетический краситель, который произвёл революцию в моде и положил начало гигантской химической индустрии.</p>
+            </div>
+
+            <!-- Факт 4 -->
+            <div class="fact-card">
+                <div class="fact-number">4</div>
+                <h3>«Молекулярные конструкторы»: реактивы Гриньяра</h3>
+                <p>Французский химик Виктор Гриньяр в 1900 году открыл реактивы Гриньяра (R-Mg-X), за что получил Нобелевскую премию всего через 12 лет. Эти реагенты позволяют, как в конструкторе, соединять углеродные атомы друг с другом, создавая сложные молекулы из простых.</p>
+            </div>
+
+            <!-- Факт 5 -->
+            <div class="fact-card">
+                <div class="fact-number">5</div>
+                <h3>Хиральность и талидомидовая трагедия</h3>
+                <p>В 1950-60-х годах препарат талидомид прописывали беременным от тошноты. Оказалось, что одна из форм молекулы (зеркальный изомер) была безопасна, а другая вызывала врождённые пороки у детей. Эта трагедия заставила фармакологию обратить пристальное внимание на хиральность лекарств.</p>
+            </div>
+
+            <!-- Факт 6 -->
+            <div class="fact-card">
+                <div class="fact-number">6</div>
+                <h3>Фуллерен: молекула из геометрии и архитектуры</h3>
+                <p>В 1985 году ученые открыли новую аллотропную форму углерода — фуллерен (C₆₀). Молекула выглядела как футбольный мяч, состоящий из пяти- и шестиугольников. Название получила в честь архитектора Ричарда Бакминстера Фуллера, проектировавшего геодезические купола аналогичной структуры.</p>
+            </div>
+
+            <!-- Факт 7 -->
+            <div class="fact-card">
+                <div class="fact-number">7</div>
+                <h3>Периодичность в органике: гомологические ряды</h3>
+                <p>В органической химии тоже есть своя «периодичность». Многие соединения можно выстроить в гомологические ряды (метан CH₄, этан C₂H₆, пропан C₃H₈ и т.д.), где каждый последующий член отличается на группу -CH₂-. Свойства в таких рядах изменяются закономерно, что позволило систематизировать огромное множество органических веществ.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Команда проекта: ученики 10Б. Права <strike>не</strike> защищены.</p>
+        <p>Сайт создан для образовательных целей.</p>
+    </footer>
+</body>
+</html>
